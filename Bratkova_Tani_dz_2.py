@@ -1,6 +1,9 @@
+# ПОПРАВИЛА ОШИБКИ И ЕЩЕ РАЗ ОТПРАВИЛА НА GitHub
+
 print('Задание 2: список, состоящий из кубов нечётных чисел от 1 до 1000')
 list_numbers = []
-for number in range(1, 1000, 2):
+# в строке ниже у меня раньше было написано 1000, забыла что range генерирует меньше на 1 - исправила
+for number in range(1, 1001, 2):
     list_numbers.append(number ** 3)
 print(list_numbers, '\n')
 

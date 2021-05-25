@@ -9,8 +9,8 @@ duration_user = duration_user.split()
 duration_user = [int(num) for num in duration_user]
 # print(type(duration_user), duration_user)
 
-for i in range(0, len(duration_user)):
-    duration = duration_user[i]
+for idx in range(len(duration_user)): # В этой строке я поправила переменную для индекса - вспомнила что i лучше не использовать
+    duration = duration_user[idx]
     if duration < 60:
         print('duration = ', duration)
         print(duration, 'сек')
@@ -30,6 +30,3 @@ for i in range(0, len(duration_user)):
         minutes = ((duration - (duration // 3600 * 3600))) // 60
         seconds = duration % 60
         print(days, 'дн', hours, 'час', minutes, 'мин', seconds, 'сек')
-
-
-
