@@ -24,4 +24,4 @@ print('\nцены пяти самых дорогих товаров:')
 price_list = [57.8, 46.51, 97, 31.12, 98, 125.52, 570, 5.03, 9, 75.7, 82]
 print(price_list, id(price_list))
 price_list.sort(reverse=True)
-print(price_list[:5], id(price_list))
+print(price_list[:5][::-1], id(price_list)) # добавила [::-1], чтобы было в порядке возрастания и сделала новый commit на ГитХаб
