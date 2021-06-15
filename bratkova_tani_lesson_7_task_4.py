@@ -25,7 +25,7 @@ size_statistics = {} # в байтах
 borders = [10 ** 2, 10 ** 3, 10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7, 10 ** 8, 10 ** 9, 10 ** 10, 10 ** 11, 10 ** 12]
 
 for dirpath, dirnames, filenames in os.walk(folder):
-    for idx_num, filename in enumerate(filenames):
+    for filename in filenames:
         size_next_file = int(os.path.getsize(os.path.join(dirpath, filename)))
         upper_border = size_next_file
         size_list = [num for i, num in enumerate(borders) if upper_border < borders[i]]
