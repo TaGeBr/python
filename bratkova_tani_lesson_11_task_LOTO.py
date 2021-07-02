@@ -93,7 +93,8 @@ human = LotoCard('Игрок')
 computer = LotoCard('Компьютер')
 no_lox = True
 
-while (computer._numbers_stroked_computer < LotoCard._MAX_NUMBER_IN_CARD) and (computer._numbers_stroked_human < LotoCard._MAX_NUMBER_IN_CARD) and (no_lox == True):
+while (computer._numbers_stroked_computer < LotoCard._MAX_NUMBER_IN_CARD) and \
+        (computer._numbers_stroked_human < LotoCard._MAX_NUMBER_IN_CARD) and (no_lox == True):
     print(human)
     print(computer)
 
@@ -101,21 +102,22 @@ while (computer._numbers_stroked_computer < LotoCard._MAX_NUMBER_IN_CARD) and (c
     keg, yes_no = game_new.keg_pull_out() # тут у нас в keg случайный бочонок, в yes_no - ответ y/n
 
     """
-    ЕСЛИ ЗАКОММЕНТИРОВАТЬ С 106 ПО 111 СТРОЧКИ, ТО МОЖНО НЕ ВВОДИТЬ Y/N, А ПРОСТО ДАВИТЬ ENTER И ТАК ПРОВЕРИТЬ ТРИ ПОЗИЦИИ "НИЧЬЯ", "ВЫИГРАЛ КОМПЬЮТЕР!!!", "ВЫИГРАЛ ЧЕЛОВЕК"
+    ЕСЛИ ЗАКОММЕНТИРОВАТЬ С 108 ПО 111 СТРОЧКИ, ТО МОЖНО НЕ ВВОДИТЬ Y/N, А ПРОСТО ДАВИТЬ ENTER И ТАК
+    ПРОВЕРИТЬ ТРИ ПОЗИЦИИ "НИЧЬЯ", "ВЫИГРАЛ КОМПЬЮТЕР!!!", "ВЫИГРАЛ ЧЕЛОВЕК"
     """
     no_lox = human.has_number(keg, yes_no)
-    if no_lox == False: # игрок лох, игра окончена
-        print('Игрок, увы, Вы проиграли! Игра окончена!')
-    else:
+    if no_lox != False:
         human.strike_out(keg)
         computer.strike_out(keg)
 
     human.strike_out(keg)
     computer.strike_out(keg)
 
-if (computer._numbers_stroked_computer == LotoCard._MAX_NUMBER_IN_CARD) and (computer._numbers_stroked_human == LotoCard._MAX_NUMBER_IN_CARD):
+if no_lox == False: # игрок лох, игра окончена
+    print('Игрок, увы, Вы проиахнулись! Игра окончена!')
+elif (computer._numbers_stroked_computer == LotoCard._MAX_NUMBER_IN_CARD) and (computer._numbers_stroked_human == LotoCard._MAX_NUMBER_IN_CARD):
     print('НИЧЬЯ!!!')
 elif (computer._numbers_stroked_computer == LotoCard._MAX_NUMBER_IN_CARD):
-    print('ВЫИГРАЛ КОМПЬЮТЕР!!!')
+    print('КОМПЬЮТЕР ПЕРВЫЙ ВЫЧЕРКНУЛ ВСЕ ЧИСЛА!!!')
 elif computer._numbers_stroked_human == LotoCard._MAX_NUMBER_IN_CARD:
-    print('ВЫИГРАЛ ЧЕЛОВЕК!!!')
+    print('ЧЕЛОВЕК ПЕРВЫЙ ВЫЧЕРКНУЛ ВСЕ ЧИСЛА!!!')
